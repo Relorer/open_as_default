@@ -29,10 +29,6 @@ class OpenAsDefaultPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
 
-
-
-
-
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "open_as_default")
     channel.setMethodCallHandler(this)
   }
@@ -81,15 +77,15 @@ class OpenAsDefaultPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onDetachedFromActivityForConfigChanges() {
-    TODO("Not yet implemented")
+    binding = null
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    TODO("Not yet implemented")
+    this.binding = binding
   }
 
   override fun onDetachedFromActivity() {
-    TODO("Not yet implemented")
+    binding = null
   }
 
 
